@@ -2,11 +2,7 @@ import { AppModule } from './app.module';
 import { NestFactory } from '@nestjs/core';
 import { ConfigService } from '@nestjs/config';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
-
-interface IAppConfigVariables {
-  APP_PORT: number;
-  APP_HOST: string;
-}
+import { IAppConfigVariables } from './interface/config.interface';
 
 async function bootstrap() {
   const configService = new ConfigService<IAppConfigVariables>();
