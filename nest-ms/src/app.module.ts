@@ -3,6 +3,8 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import configSchema from './schema/config.schema';
+import { HealthModule } from './modules/health/health.module';
+import { TerminusModule } from '@nestjs/terminus';
 
 @Module({
   imports: [
@@ -12,6 +14,8 @@ import configSchema from './schema/config.schema';
       cache: true,
       validationSchema: configSchema,
     }),
+    TerminusModule,
+    HealthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
